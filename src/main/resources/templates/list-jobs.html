@@ -11,15 +11,38 @@
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
     <!-- TODO #1 - Use a loop to display job results in a table. -->
-    <table class="job-listing">
-        <th:block>
-            <tr th:each="job : ${jobs}">
-                <th:block>
-                    <td th:text="${job.toString()}">Jobs</td>
-                </th:block>
-            </tr>
-        </th:block>
+    <table th:fragment="jobDisplay" class="job-listing">
+        <tr th:each="job : ${jobs}">
+            <td>
+                <p th:text="'ID: ' + ${job.id}">Jobs</p>
+                <p th:text="'Name: ' + ${job.name}">Jobs</p>
+                <p th:text="'Employer: ' + ${job.employer}">Employer</p>
+                <p th:text="'Location: ' + ${job.location}">Location</p>
+                <p th:text="'Position Type: ' + ${job.positionType}">Position Type</p>
+                <p th:text="'Skill: ' + ${job.coreCompetency}">Core Competency</p>
+            </td>
+        </tr>
     </table>
+<!--    <table class="job-listing" th:each="job : ${jobs}">-->
+<!--        <tr>-->
+<!--            <td th:text="'ID: ' + ${job.id}">Job</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td th:text="'Name: ' + ${job.name}">Name</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td th:text="'Employer: ' + ${job.employer}">Employer</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td th:text="'Location: ' + ${job.location}">Location</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td th:text="'Position Type: ' + ${job.positionType}">Position Type</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td th:text="'Skill: ' + ${job.coreCompetency}">Skill</td>-->
+<!--        </tr>-->
+<!--    </table>-->
 
 </div>
 
